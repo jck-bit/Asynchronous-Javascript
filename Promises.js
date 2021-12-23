@@ -17,37 +17,15 @@ const getTodos = (resorce) =>{
         request.send();
         
     });
-
-
-
 };
 
-getTodos('todos/todos.json').then(data=>{
-   console.log('promise resolved',data)
+getTodos('todos/todos.json')
+.then(data=>{
+   console.log('promise 1 resolved',data)
+
+ return getTodos('todos/marios.json');
+}).then(data =>{
+   console.log('promise 2 resolved', data);
 }).catch(err=>{
    console.log('promise rejected ,', err)
 })
-//Promise example
-
-
-// const getsth =() =>{
-
-//     return new Promise ((resolve, reject)=>{
-//         reject('some error')
-//         // resolve('some data')
-//     });
-// };
-
-
-// // getsth().then((data)=>{
-// //   console.log(data)
-// // }, (err)=>{
-// //    console.log(err);
-// // });
-
-
-// getsth().then(data=>{
-//     console.log(data);
-// }).catch(err =>{
-//     console.log(err)
-// })
