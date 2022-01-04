@@ -9,3 +9,4 @@ fetch('todos/marios.json').then((response) => {
 .catch((err) =>{
    console.log('rejected', err)
 })
+
