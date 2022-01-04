@@ -19,8 +19,15 @@ const getTodos = (resorce) =>{
    })
  };
 
- getTodos('todos/todos.json').then(data =>{
-   console.log('promise resolved', data)
+ getTodos('todos/todos.json')
+  .then(data =>{
+   console.log('promise 1 resolved', data)
+   return getTodos('todos/marios.json')
+}).then(data=>{
+    console.log('promise 2 resolved', data)
+    return getTodos('todos/sean.json')
+ }).then(data=>{
+     console.log('Promise 3 Resolved', data)
  }).catch((err) =>{
     console.log('promise rejected:', err)
  });
