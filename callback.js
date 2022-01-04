@@ -1,4 +1,4 @@
-const getTodos = (callback) =>{
+const getTodos = (resorce, callback) =>{
   const request = new XMLHttpRequest();
 
   request.addEventListener('readystatechange', () =>{
@@ -11,19 +11,16 @@ const getTodos = (callback) =>{
       }
   })
   
-  
-  request.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
-  request.send();
-  
+  request.open('GET', resorce);
+  request.send();  
                                        
 };
 
-getTodos((err, data)=>{
-   console.log('callback fired');
-   if(err){
-      console.log(err);
-   }else{
-     console.log(data)
-   }
+getTodos('todos/todos.json',(err, data)=>{
+   console.log(data);
+
+getTodos('todos/marios.json',(err, data) =>{
+  console.log(data)
+})
 });
 
